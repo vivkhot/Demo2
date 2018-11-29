@@ -1,0 +1,6 @@
+DiagnosticsCheck_v1_1-TestCase.xml
+SubmitClaim-Negative-TestCase.xml
+GetMemberPreAuthsTestCase.xml
+getmemberclaims.xml
+GetMemberInformation.xml
+SubmitClaim-Positive-TestCase.xml

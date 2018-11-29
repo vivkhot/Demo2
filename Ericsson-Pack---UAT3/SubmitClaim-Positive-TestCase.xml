@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SubmitClaim-Positive-TestCase" searchProperties="true" id="61a1b856-8d44-41a9-913d-372b660aed10" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="61a1b856-8d44-41a9-913d-372b660aed10fileName">SubmitClaim-Positive-TestCase</con:setting></con:settings><con:savedRecentRuns>1</con:savedRecentRuns><con:testStep type="request" name="SubmitClaim" id="8a3e9d5a-58ba-4867-afe8-991fd974c510"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BasicHttpBinding_ClaimsServiceInterface</con:interface><con:operation>SubmitClaim</con:operation><con:request name="SubmitClaim" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="e8701c32-77c4-4b21-844d-ad490e6b8860"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://systest2-partners.services-api.bupa-intl.com/BupaPartnerGateway.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:com="urn://com.bupa.bi.claims.SubmitClaim_v1_0" xmlns:com1="urn://com.bupa.bi.commonclaims.Claim_v1_0" xmlns:com2="urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0" xmlns:com3="urn://com.bupa.bi.common.Provider_v1_0" xmlns:com4="urn://com.bupa.bi.common.Procedure_v1_0" xmlns:com5="urn://com.bupa.bi.common.Diagnosis_v1_0">
+   <soapenv:Header>
+       <tpa_organization>Test</tpa_organization>
+       <tpa_password>3340DmR2jWlX9JQSE5cJfSZuAMErMZq3lsiUr1VI/5c=</tpa_password>
+     </soapenv:Header>
+   <soapenv:Body>
+      <com:SubmitClaimRequest>
+         <com:RequestUsername>SHARMAR</com:RequestUsername>
+         <com:Claim>
+            <!--Optional:-->
+            <com1:BupaClaimId xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+            <!--Optional:-->
+            <com1:Version xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+            <!--Optional:-->
+            <com1:PartnerClaimReference>DTGM675</com1:PartnerClaimReference>
+            <!--Optional:-->
+            <com1:BupaPreAuthReference xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+            <!--Optional:-->
+            <com1:Status>Paid</com1:Status>
+            <!--Optional:-->
+            <com1:SuspendReason xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+            <!--Optional:-->
+            <com1:SuspendReasonDescription xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+            <!--Optional:-->
+            <com1:BupaMemberId>BI-6000-0183-9540</com1:BupaMemberId>
+            <!--Optional:-->
+            <com1:ClaimReceivedDate>2015-07-07T00:00:00</com1:ClaimReceivedDate>
+            <!--Optional:-->
+            <com1:TotalClaimedAmount>48.31</com1:TotalClaimedAmount>
+            <!--Optional:-->
+            <com1:TotalPaidAmount>48.31</com1:TotalPaidAmount>
+            <!--Optional:-->
+            <com1:CurrencyCode>USD</com1:CurrencyCode>
+            <!--Optional:-->
+            <com1:Notes>20/05/2015 07:45:16: CL150520756004/0 Invoice 20150419 line 3 Partner's procedure details: CPT 99607 MEDICATION THERAPY MANAGEMENT SERVICE(S) PROVIDED BY A PHARMACIST, INDIVIDU 20/05/2015 07:45:16: CL150520756004/0 Invoice 20150419 line 2 Partner's procedure details: CPT 89240 MISC PATH TEST 20/05/2015 07:45:16: CL150520756004/0 Invoice 20150419 line 1 Partner's procedure details: CPT 99245 OFFICE CONSULTATION, 3 KEY COMPONENTS: COMPREHENSIVE HX;COMPREHENSIVE EXAM;MED DECISION HIGH COMPLEX 20/05/2015 07:45:16: CL150520756004/0 Whole claim Partner's diagnosis details: ICD10 084 Malaria</com1:Notes>
+            <!--Optional:-->
+            <com1:MedicalRecordConsent>Unknown</com1:MedicalRecordConsent>
+            <!--Optional:-->
+            <com1:Invoices>
+               <!--1 or more repetitions:-->
+               <com2:Invoice>
+                  <!--Optional:-->
+                  <com2:InvoiceNumber>20150419</com2:InvoiceNumber>
+                  <!--Optional:-->
+                  <com2:InvoiceDate>2015-07-19T00:00:00</com2:InvoiceDate>
+                  <!--Optional:-->
+                  <com2:Provider>
+                     <!--Optional:-->
+                     <com3:BupaProviderId xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                     <!--Optional:-->
+                     <com3:PartnerReference>9904084</com3:PartnerReference>
+                     <!--Optional:-->
+                     <com3:Name>Hudsonian</com3:Name>
+                     <!--Optional:-->
+                     <com3:CountryCode>ZAF</com3:CountryCode>
+                  </com2:Provider>
+                  <!--Optional:-->
+                  <com2:PayeeType>Provider</com2:PayeeType>
+                  <!--Optional:-->
+                  <com2:TreatmentCountryCode>ZAF</com2:TreatmentCountryCode>
+                  <!--Optional:-->
+                  <com2:ClaimedAmount>48.31</com2:ClaimedAmount>
+                  <!--Optional:-->
+                  <com2:ClaimedCurrencyCode>USD</com2:ClaimedCurrencyCode>
+                  <!--Optional:-->
+                  <com2:PaidAmount>48.31</com2:PaidAmount>
+                  <!--Optional:-->
+                  <com2:PaidCurrencyCode>USD</com2:PaidCurrencyCode>
+                  <!--Optional:-->
+                  <com2:InvoiceLines>
+                     <!--1 or more repetitions:-->
+                     <com2:InvoiceLine>
+                        <!--Optional:-->
+                        <com2:ItemReference>1503FT3S</com2:ItemReference>
+                        <!--Optional:-->
+                        <com2:BupaBenefitID>6000</com2:BupaBenefitID>
+                        <!--Optional:-->
+                        <com2:TreatmentFromDate>2015-06-19T00:00:00</com2:TreatmentFromDate>
+                        <!--Optional:-->
+                        <com2:TreatmentToDate>2015-06-19T00:00:00</com2:TreatmentToDate>
+                        <!--Optional:-->
+                        <com2:NumberOfIncidents>1</com2:NumberOfIncidents>
+                        <!--Optional:-->
+                        <com2:ClaimedAmount>24.75</com2:ClaimedAmount>
+                        <!--Optional:-->
+                        <com2:PaidAmount>24.75</com2:PaidAmount>
+                        <!--Optional:-->
+                        <com2:RejectionReason xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <!--Optional:-->
+                        <com2:RejectionReasonDescription xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <!--Optional:-->
+                        <com2:Copay>0.0</com2:Copay>
+                        <!--Optional:-->
+                        <com2:CoInsurance>0.0</com2:CoInsurance>
+                        <!--Optional:-->
+                        <com2:PrimaryProcedure>
+                           <!--Optional:-->
+                           <com4:Code>99245</com4:Code>
+                           <!--Optional:-->
+                           <com4:Description>OFFICE CONSULTATION, 3 KEY COMPONENTS: COMPREHENSIVE HX;COMPREHENSIVE EXAM;MED DECISION HIGH COMPLEX</com4:Description>
+                           <!--Optional:-->
+                           <com4:Standard>CPT</com4:Standard>
+                        </com2:PrimaryProcedure>
+                     </com2:InvoiceLine>
+ 				<com2:InvoiceLine>
+                        <!--Optional:-->
+                        <com2:ItemReference>1503FT3T</com2:ItemReference>
+                        <!--Optional:-->
+                        <com2:BupaBenefitID>3520</com2:BupaBenefitID>
+                        <!--Optional:-->
+                        <com2:TreatmentFromDate>2015-06-20T00:00:00</com2:TreatmentFromDate>
+                        <!--Optional:-->
+                        <com2:TreatmentToDate>2015-06-20T00:00:00</com2:TreatmentToDate>
+                        <!--Optional:-->
+                        <com2:NumberOfIncidents>1</com2:NumberOfIncidents>
+                        <!--Optional:-->
+                        <com2:ClaimedAmount>5.0</com2:ClaimedAmount>
+                        <!--Optional:-->
+                        <com2:PaidAmount>5.0</com2:PaidAmount>
+                        <!--Optional:-->
+                        <com2:RejectionReason xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <!--Optional:-->
+                        <com2:RejectionReasonDescription xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <!--Optional:-->
+                        <com2:Copay>0.0</com2:Copay>
+                        <!--Optional:-->
+                        <com2:CoInsurance>0.0</com2:CoInsurance>
+                        <!--Optional:-->
+                        <com2:PrimaryProcedure>
+                           <!--Optional:-->
+                           <com4:Code>89240</com4:Code>
+                           <!--Optional:-->
+                           <com4:Description>MISC PATH TEST</com4:Description>
+                           <!--Optional:-->
+                           <com4:Standard>CPT</com4:Standard>
+                        </com2:PrimaryProcedure>
+                     </com2:InvoiceLine>
+
+                <com2:InvoiceLine>
+                        <!--Optional:-->
+                        <com2:ItemReference>1503FT3V</com2:ItemReference>
+                        <!--Optional:-->
+                        <com2:BupaBenefitID>6010</com2:BupaBenefitID>
+                        <!--Optional:-->
+                        <com2:TreatmentFromDate>2015-06-21T00:00:00</com2:TreatmentFromDate>
+                        <!--Optional:-->
+                        <com2:TreatmentToDate>2015-06-21T00:00:00</com2:TreatmentToDate>
+                        <!--Optional:-->
+                        <com2:NumberOfIncidents>1</com2:NumberOfIncidents>
+                        <!--Optional:-->
+                        <com2:ClaimedAmount>18.56</com2:ClaimedAmount>
+                        <!--Optional:-->
+                        <com2:PaidAmount>18.56</com2:PaidAmount>
+                        <!--Optional:-->
+                        <com2:RejectionReason xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <!--Optional:-->
+                        <com2:RejectionReasonDescription xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <!--Optional:-->
+                        <com2:Copay>0.0</com2:Copay>
+                        <!--Optional:-->
+                        <com2:CoInsurance>0.0</com2:CoInsurance>
+                        <!--Optional:-->
+                        <com2:PrimaryProcedure>
+                           <!--Optional:-->
+                           <com4:Code>99607</com4:Code>
+                           <!--Optional:-->
+                           <com4:Description>MEDICATION THERAPY MANAGEMENT SERVICE(S) PROVIDED BY A PHARMACIST, INDIVIDU</com4:Description>
+                           <!--Optional:-->
+                           <com4:Standard>CPT</com4:Standard>
+                        </com2:PrimaryProcedure>
+                     </com2:InvoiceLine>
+                     
+                  </com2:InvoiceLines>
+                  <!--Optional:-->
+                  <com2:PrimaryDiagnosis>
+                     <!--Optional:-->
+                     <com5:Code>084</com5:Code>
+                     <!--Optional:-->
+                     <com5:Description>Malaria</com5:Description>
+                     <!--Optional:-->
+                     <com5:Standard>ICD10</com5:Standard>
+                  </com2:PrimaryDiagnosis>
+               </com2:Invoice>
+            </com1:Invoices>
+         </com:Claim>
+      </com:SubmitClaimRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple NotContains" id="1974b0e7-0b61-4f7a-b1aa-a2193b846585" name="Not Contains"><con:configuration><token>fault</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://bupa.com/ClaimsService:submitClaimIn"/><con:wsrmConfig version="1.2"/><con:environmentSpec><con:entry environmentId="ffa02281-abee-4d92-9d74-c677c51cd899"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="da7c9196-ba3b-41d0-a66d-0a23ca4256ba"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="2e2d3644-d234-40cc-bc7a-aa84e98bab33"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="abef8391-6af3-433a-b3bb-9504a88cd8e9"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="6f08d644-a5bc-4490-920b-48a60b2d8e41"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="64e0791f-4ed5-4997-966c-88e83c52740b"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="6f2ca154-2593-4d31-9605-d7f796e04a87"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="5650c0e1-78a8-46fa-87b8-a891fcd675df"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="43d00641-0327-48c2-8143-b4a8c3cc7a15"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="d569c580-5769-4daf-af9e-5bf59356fdbc"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="838914ec-42f6-42ce-a432-f18913224d4a"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="4b1f3791-ec46-47c9-a61d-2dad2d67e563"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="ea7ba891-5369-4d68-be76-ff738b357a8d"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="d32ca7f9-7f15-406a-b283-82aea268796e"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="472fc935-ce99-435f-a108-237792822ece"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="1693b6ef-728c-4bd3-98f6-b40edae1b2a0"><con:authProfile>Inherit From Parent</con:authProfile></con:entry></con:environmentSpec></con:request></con:config></con:testStep><con:properties><con:property><con:name>responsemsg</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">"An internal fault occured. Error ID = 8e5a6b8b-e3a9-4b23-856c-820a596bfc3e"</con:value></con:property><con:property><con:name>success</con:name><con:value>no</con:value></con:property><con:property><con:name>responsemsg2</con:name><con:value/></con:property></con:properties><con:reportParameters/><con:breakPoints><con:testStepId>2faccbec-cc33-41e0-9cf5-bd8989237ff5</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>b6f537b6-987d-4136-83bd-cd68c72db121</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>3780ca31-b97f-4783-8563-162f22dae3b6</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>7044ecb0-56d1-438b-b3a5-c5d7d407d559</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>c59eae54-7465-4f12-8b81-663a39aa6fff</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>a43455b4-bf73-4b05-8ad1-051f895454af</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>3f75ffe6-ca47-4a81-b009-345d0f8707fd</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>e76e6313-f166-4a89-8338-0cc642837b7a</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:environmentSpec><con:entry environmentId="ffa02281-abee-4d92-9d74-c677c51cd899"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="da7c9196-ba3b-41d0-a66d-0a23ca4256ba"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="2e2d3644-d234-40cc-bc7a-aa84e98bab33"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="abef8391-6af3-433a-b3bb-9504a88cd8e9"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="6f08d644-a5bc-4490-920b-48a60b2d8e41"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="64e0791f-4ed5-4997-966c-88e83c52740b"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="6f2ca154-2593-4d31-9605-d7f796e04a87"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="5650c0e1-78a8-46fa-87b8-a891fcd675df"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="43d00641-0327-48c2-8143-b4a8c3cc7a15"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="d569c580-5769-4daf-af9e-5bf59356fdbc"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="838914ec-42f6-42ce-a432-f18913224d4a"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="4b1f3791-ec46-47c9-a61d-2dad2d67e563"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="ea7ba891-5369-4d68-be76-ff738b357a8d"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="d32ca7f9-7f15-406a-b283-82aea268796e"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="472fc935-ce99-435f-a108-237792822ece"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="1693b6ef-728c-4bd3-98f6-b40edae1b2a0"><con:authProfile>Inherit From Parent</con:authProfile></con:entry></con:environmentSpec></con:testCase>

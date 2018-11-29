@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="false" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Submit n Get Claim TestCase" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="" id="c4d08ae7-7d76-4c72-9250-f76a65ddd930" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="c4d08ae7-7d76-4c72-9250-f76a65ddd930fileName">Submit-n-Get-Claim-TestCase</con:setting></con:settings><con:savedRecentRuns>1</con:savedRecentRuns><con:testStep type="properties" name="" id="8724a24d-051e-4318-9735-3bba7de3181f"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties/></con:config></con:testStep><con:testStep type="datasource" name="DataSource" id="b11093fa-620d-4a37-ad7f-3d1354dfb9c5"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="Excel"><con:configuration><file>//gbstafile01-1/home/SHARMAR/Xen/Documents/BIRegression_SOAPUI_Projects/Ericsson/Negative Testing Data.xls</file><worksheet>SuccessfulClaims</worksheet><cell>B2</cell><ignoreEmpty>true</ignoreEmpty><evaluateFormulas>false</evaluateFormulas></con:configuration></con:dataSource><con:property>RequestUserName</con:property><con:property>BupaClaimId</con:property><con:property>Version</con:property><con:property>Originating Partner ID</con:property><con:property>PartnerClaimReference</con:property><con:property>BupaPreAuthReference</con:property><con:property>Status</con:property><con:property>SuspendReason</con:property><con:property>SuspendDescription</con:property><con:property>BupaMemberId</con:property><con:property>ClaimsRecievedDate</con:property><con:property>TotalClaimedAmount</con:property><con:property>TotalPaidAmount</con:property><con:property>CurrencyCode</con:property><con:property>Notes</con:property><con:property>MedicalRecordConsent</con:property><con:property>InvoiceNumber</con:property><con:property>InvoiceDate</con:property><con:property>BupaProviderId</con:property><con:property>OriginatingPartnerId</con:property><con:property>PartnerReference</con:property><con:property>Name</con:property><con:property>Country Code</con:property><con:property>PayeeType</con:property><con:property>TreatmentCountryCode</con:property><con:property>ClaimedAmount</con:property><con:property>ClaimedCurrencyCode</con:property><con:property>PaidAmount</con:property><con:property>PaidCurrencyCode</con:property><con:property>Item Reference</con:property><con:property>Benefit Code</con:property><con:property>TreatmentFromDate</con:property><con:property>TreatmentToDate</con:property><con:property>NumberOfIncidents</con:property><con:property>InvoiceLineClaimedAmount</con:property><con:property>InvoiceLinePaidAmount</con:property><con:property>RejectionReason</con:property><con:property>RejectionReasonDescription</con:property><con:property>Copay</con:property><con:property>CoInsurance</con:property><con:property>Code</con:property><con:property>Description</con:property><con:property>Standard</con:property><con:property>DiagnosisCode</con:property><con:property>DiagnosisDescription</con:property><con:property>DiagnosisStandard</con:property><con:property>Username</con:property><con:property>Password</con:property><con:startRow/><con:endRow/><con:trimValues>false</con:trimValues><con:entitizeValues>false</con:entitizeValues><con:restartOnRun>false</con:restartOnRun><con:expandProperties>false</con:expandProperties></con:config></con:testStep><con:testStep type="request" name="SubmitClaim" id="1f3631d8-c398-4831-876c-0070f666346f"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BasicHttpBinding_ClaimsServiceInterface</con:interface><con:operation>SubmitClaim</con:operation><con:request name="SubmitClaim" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="c3f7b4c3-0be2-45fb-8c90-df3444aec965"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://systest2-partners.services-api.bupa-intl.com/BupaPartnerGateway.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:com="urn://com.bupa.bi.claims.SubmitClaim_v1_0" xmlns:com1="urn://com.bupa.bi.commonclaims.Claim_v1_0" xmlns:com2="urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0" xmlns:com3="urn://com.bupa.bi.common.Provider_v1_0" xmlns:com4="urn://com.bupa.bi.common.Procedure_v1_0" xmlns:com5="urn://com.bupa.bi.common.Diagnosis_v1_0">
+    <soapenv:Header>
+       <tpa_organization>Test</tpa_organization>
+       <tpa_password>LZ2xO9kHZwHnBXH8t9FS2xXKZXaVwt+qhndERot9+DI=</tpa_password>
+</soapenv:Header>
+   <soapenv:Body>
+      <com:SubmitClaimRequest>
+         <com:RequestUsername>${DataSource#RequestUserName}</com:RequestUsername>
+         <com:Claim>
+            <!--Optional:-->
+            <com1:BupaClaimId>${DataSource#BupaClaimId}</com1:BupaClaimId>
+            <!--Optional:-->
+            <com1:Version>${DataSource#Version}</com1:Version>
+            <!--Optional:-->
+            <com1:PartnerClaimReference>${DataSource#PartnerClaimReference}</com1:PartnerClaimReference>
+            <!--Optional:-->
+            <com1:BupaPreAuthReference>${DataSource#BupaPreAuthReference}</com1:BupaPreAuthReference>
+            <!--Optional:-->
+            <com1:Status>${DataSource#Status}</com1:Status>
+            <!--Optional:-->
+            <com1:SuspendReason>${DataSource#SuspendReason}</com1:SuspendReason>
+            <!--Optional:-->
+            <com1:SuspendReasonDescription xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+            <!--Optional:-->
+            <com1:BupaMemberId>${DataSource#BupaMemberId}</com1:BupaMemberId>
+            <!--Optional:-->
+            <com1:ClaimReceivedDate>${DataSource#ClaimsRecievedDate}</com1:ClaimReceivedDate>
+            <!--Optional:-->
+            <com1:TotalClaimedAmount>${DataSource#TotalClaimedAmount}</com1:TotalClaimedAmount>
+            <!--Optional:-->
+            <com1:TotalPaidAmount>${DataSource#TotalPaidAmount}</com1:TotalPaidAmount>
+            <!--Optional:-->
+            <com1:CurrencyCode>${DataSource#CurrencyCode}</com1:CurrencyCode>
+            <!--Optional:-->
+            <com1:Notes>${DataSource#Notes}</com1:Notes>
+            <!--Optional:-->
+            <com1:MedicalRecordConsent>${DataSource#MedicalRecordConsent}</com1:MedicalRecordConsent>
+            <!--Optional:-->
+            <com1:Invoices>
+               <!--1 or more repetitions:-->
+               <com2:Invoice>
+                  <!--Optional:-->
+                  <com2:InvoiceNumber>${DataSource#InvoiceNumber}</com2:InvoiceNumber>
+                  <!--Optional:-->
+                  <com2:InvoiceDate>${DataSource#InvoiceDate}</com2:InvoiceDate>
+                  <!--Optional:-->
+                  <com2:Provider>
+                     <!--Optional:-->
+                     <com3:BupaProviderId>${DataSource#BupaProviderId}</com3:BupaProviderId>
+                     <!--Optional:-->
+                     <com3:PartnerReference>${DataSource#PartnerReference}</com3:PartnerReference>
+                     <!--Optional:-->
+                     <com3:Name>${DataSource#Name}</com3:Name>
+                     <!--Optional:-->
+                     <com3:CountryCode>${DataSource#Country Code}</com3:CountryCode>
+                  </com2:Provider>
+                  <!--Optional:-->
+                  <com2:PayeeType>${DataSource#PayeeType}</com2:PayeeType>
+                  <!--Optional:-->
+                  <com2:TreatmentCountryCode>${DataSource#TreatmentCountryCode}</com2:TreatmentCountryCode>
+                  <!--Optional:-->
+                  <com2:ClaimedAmount>${DataSource#ClaimedAmount}</com2:ClaimedAmount>
+                  <!--Optional:-->
+                  <com2:ClaimedCurrencyCode>${DataSource#ClaimedCurrencyCode}</com2:ClaimedCurrencyCode>
+                  <!--Optional:-->
+                  <com2:PaidAmount>${DataSource#PaidAmount}</com2:PaidAmount>
+                  <!--Optional:-->
+                  <com2:PaidCurrencyCode>${DataSource#PaidCurrencyCode}</com2:PaidCurrencyCode>
+                  <!--Optional:-->
+                  <com2:InvoiceLines>
+                     <!--1 or more repetitions:-->
+                     <com2:InvoiceLine>
+                        <!--Optional:-->
+                        <com2:ItemReference>${DataSource#Item Reference}</com2:ItemReference>
+                        <!--Optional:-->
+                        <com2:BupaBenefitID>${DataSource#Benefit Code}</com2:BupaBenefitID>
+                        <!--Optional:-->
+                        <com2:TreatmentFromDate>${DataSource#TreatmentFromDate}</com2:TreatmentFromDate>
+                        <!--Optional:-->
+                        <com2:TreatmentToDate>${DataSource#TreatmentToDate}</com2:TreatmentToDate>
+                        <!--Optional:-->
+                        <com2:NumberOfIncidents>${DataSource#NumberOfIncidents}</com2:NumberOfIncidents>
+                        <!--Optional:-->
+                        <com2:ClaimedAmount>${DataSource#ClaimedAmount}</com2:ClaimedAmount>
+                        <!--Optional:-->
+                        <com2:PaidAmount>${DataSource#PaidAmount}</com2:PaidAmount>
+                        <!--Optional:-->
+                        <com2:RejectionReason>${DataSource#RejectionReason}</com2:RejectionReason>
+                        <!--Optional:-->
+                        <com2:RejectionReasonDescription>${DataSource#RejectionReasonDescription}</com2:RejectionReasonDescription>
+                        <!--Optional:-->
+                        <com2:Copay>${DataSource#Copay}</com2:Copay>
+                        <!--Optional:-->
+                        <com2:CoInsurance>${DataSource#CoInsurance}</com2:CoInsurance>
+                        <!--Optional:-->
+                        <com2:PrimaryProcedure>
+                           <!--Optional:-->
+                           <com4:Code>${DataSource#Code}</com4:Code>
+                           <!--Optional:-->
+                           <com4:Description>${DataSource#Description}</com4:Description>
+                           <!--Optional:-->
+                           <com4:Standard>${DataSource#Standard}</com4:Standard>
+                        </com2:PrimaryProcedure>
+                     </com2:InvoiceLine>
+                  </com2:InvoiceLines>
+                  <!--Optional:-->
+                  <com2:PrimaryDiagnosis>
+                     <!--Optional:-->
+                     <com5:Code>${DataSource#DiagnosisCode}</com5:Code>
+                     <!--Optional:-->
+                     <com5:Description>${DataSource#DiagnosisDescription}</com5:Description>
+                     <!--Optional:-->
+                     <com5:Standard>${DataSource#DiagnosisStandard}</com5:Standard>
+                  </com2:PrimaryDiagnosis>
+               </com2:Invoice>
+            </com1:Invoices>
+         </com:Claim>
+      </com:SubmitClaimRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://bupa.com/ClaimsService:submitClaimIn"/><con:wsrmConfig version="1.2"/><con:environmentSpec><con:entry environmentId="ffa02281-abee-4d92-9d74-c677c51cd899"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="da7c9196-ba3b-41d0-a66d-0a23ca4256ba"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="2e2d3644-d234-40cc-bc7a-aa84e98bab33"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="abef8391-6af3-433a-b3bb-9504a88cd8e9"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="6f08d644-a5bc-4490-920b-48a60b2d8e41"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="64e0791f-4ed5-4997-966c-88e83c52740b"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="6f2ca154-2593-4d31-9605-d7f796e04a87"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="5650c0e1-78a8-46fa-87b8-a891fcd675df"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="43d00641-0327-48c2-8143-b4a8c3cc7a15"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="d569c580-5769-4daf-af9e-5bf59356fdbc"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="838914ec-42f6-42ce-a432-f18913224d4a"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="4b1f3791-ec46-47c9-a61d-2dad2d67e563"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="ea7ba891-5369-4d68-be76-ff738b357a8d"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="d32ca7f9-7f15-406a-b283-82aea268796e"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="472fc935-ce99-435f-a108-237792822ece"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="1693b6ef-728c-4bd3-98f6-b40edae1b2a0"><con:authProfile>Inherit From Parent</con:authProfile></con:entry></con:environmentSpec></con:request></con:config></con:testStep><con:testStep type="request" name="c SubmitClaim" disabled="true" id="c12c839b-194b-479b-92fe-f75742a27f0e"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BasicHttpBinding_ClaimsServiceInterface</con:interface><con:operation>SubmitClaim</con:operation><con:request name="c SubmitClaim" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="42f5d265-f870-4284-8569-3760dd5f67d6"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://systest2-partners.services-api.bupa-intl.com/BupaPartnerGateway.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:com="urn://com.bupa.bi.claims.SubmitClaim_v1_0" xmlns:com1="urn://com.bupa.bi.commonclaims.Claim_v1_0" xmlns:com2="urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0" xmlns:com3="urn://com.bupa.bi.common.Provider_v1_0" xmlns:com4="urn://com.bupa.bi.common.Procedure_v1_0" xmlns:com5="urn://com.bupa.bi.common.Diagnosis_v1_0">
+       <soapenv:Header>
+                <tpa_organization>${DataSource#Username}</tpa_organization>
+                <tpa_password>${DataSource#Password}</tpa_password>
+   </soapenv:Header>
+   <soapenv:Body>
+      <com:SubmitClaimRequest>
+         <com:RequestUsername>${DataSource#RequestUserName}</com:RequestUsername>
+         <com:Claim>
+            <!--Optional:-->
+            <com1:BupaClaimId>${DataSource#BupaClaimId}</com1:BupaClaimId>
+            <!--Optional:-->
+            <com1:Version>${DataSource#Version}</com1:Version>
+            <!--Optional:-->
+            <com1:PartnerClaimReference>${DataSource#PartnerClaimReference}</com1:PartnerClaimReference>
+            <!--Optional:-->
+            <com1:BupaPreAuthReference>${DataSource#BupaPreAuthReference}</com1:BupaPreAuthReference>
+            <!--Optional:-->
+            <com1:Status>${DataSource#Status}</com1:Status>
+            <!--Optional:-->
+            <com1:SuspendReason>${DataSource#SuspendReason}</com1:SuspendReason>
+            <!--Optional:-->
+            <com1:SuspendReasonDescription>${DataSource#SuspendDescription}</com1:SuspendReasonDescription>
+            <!--Optional:-->
+            <com1:BupaMemberId>${DataSource#BupaMemberId}</com1:BupaMemberId>
+            <!--Optional:-->
+            <com1:ClaimReceivedDate>${DataSource#ClaimsRecievedDate}</com1:ClaimReceivedDate>
+            <!--Optional:-->
+            <com1:TotalClaimedAmount>${DataSource#TotalClaimedAmount}</com1:TotalClaimedAmount>
+            <!--Optional:-->
+            <com1:TotalPaidAmount>${DataSource#TotalPaidAmount}</com1:TotalPaidAmount>
+            <!--Optional:-->
+            <com1:CurrencyCode>${DataSource#CurrencyCode}</com1:CurrencyCode>
+            <!--Optional:-->
+            <com1:Notes>${DataSource#Notes}</com1:Notes>
+            <!--Optional:-->
+            <com1:MedicalRecordConsent>${DataSource#MedicalRecordConsent}</com1:MedicalRecordConsent>
+            <!--Optional:-->
+            <com1:Invoices>
+               <!--1 or more repetitions:-->
+               <com2:Invoice>
+                  <!--Optional:-->
+                  <com2:InvoiceNumber>${DataSource#InvoiceNumber}</com2:InvoiceNumber>
+                  <!--Optional:-->
+                  <com2:InvoiceDate>${DataSource#InvoiceDate}</com2:InvoiceDate>
+                  <!--Optional:-->
+                  <com2:Provider>
+                     <!--Optional:-->
+                     <com3:BupaProviderId>${DataSource#BupaProviderId}</com3:BupaProviderId>
+                     <!--Optional:-->
+                     <com3:PartnerReference>${DataSource#PartnerReference}</com3:PartnerReference>
+                     <!--Optional:-->
+                     <com3:Name>${DataSource#Name}</com3:Name>
+                     <!--Optional:-->
+                     <com3:CountryCode>${DataSource#Country Code}</com3:CountryCode>
+                  </com2:Provider>
+                  <!--Optional:-->
+                  <com2:PayeeType>${DataSource#PayeeType}</com2:PayeeType>
+                  <!--Optional:-->
+                  <com2:TreatmentCountryCode>${DataSource#TreatmentCountryCode}</com2:TreatmentCountryCode>
+                  <!--Optional:-->
+                  <com2:ClaimedAmount>${DataSource#ClaimedAmount}</com2:ClaimedAmount>
+                  <!--Optional:-->
+                  <com2:ClaimedCurrencyCode>${DataSource#ClaimedCurrencyCode}</com2:ClaimedCurrencyCode>
+                  <!--Optional:-->
+                  <com2:PaidAmount>${DataSource#PaidAmount}</com2:PaidAmount>
+                  <!--Optional:-->
+                  <com2:PaidCurrencyCode>${DataSource#PaidCurrencyCode}</com2:PaidCurrencyCode>
+                  <!--Optional:-->
+                  <com2:InvoiceLines>
+                     <!--1 or more repetitions:-->
+                     <com2:InvoiceLine>
+                        <!--Optional:-->
+                        <com2:ItemReference>${DataSource#Item Reference}</com2:ItemReference>
+                        <!--Optional:-->
+                        <com2:BupaBenefitID>${DataSource#Benefit Code}</com2:BupaBenefitID>
+                        <!--Optional:-->
+                        <com2:TreatmentFromDate>${DataSource#TreatmentFromDate}</com2:TreatmentFromDate>
+                        <!--Optional:-->
+                        <com2:TreatmentToDate>${DataSource#TreatmentToDate}</com2:TreatmentToDate>
+                        <!--Optional:-->
+                        <com2:NumberOfIncidents>${DataSource#NumberOfIncidents}</com2:NumberOfIncidents>
+                        <!--Optional:-->
+                        <com2:ClaimedAmount>${DataSource#ClaimedAmount}</com2:ClaimedAmount>
+                        <!--Optional:-->
+                        <com2:PaidAmount>${DataSource#PaidAmount}</com2:PaidAmount>
+                        <!--Optional:-->
+                        <com2:RejectionReason>${DataSource#RejectionReason}</com2:RejectionReason>
+                        <!--Optional:-->
+                        <com2:RejectionReasonDescription>${DataSource#RejectionReasonDescription}</com2:RejectionReasonDescription>
+                        <!--Optional:-->
+                        <com2:Copay>${DataSource#Copay}</com2:Copay>
+                        <!--Optional:-->
+                        <com2:CoInsurance>${DataSource#CoInsurance}</com2:CoInsurance>
+                        <!--Optional:-->
+                        <com2:PrimaryProcedure>
+                           <!--Optional:-->
+                           <com4:Code>${DataSource#Code}</com4:Code>
+                           <!--Optional:-->
+                           <com4:Description>${DataSource#Description}</com4:Description>
+                           <!--Optional:-->
+                           <com4:Standard>${DataSource#Standard}</com4:Standard>
+                        </com2:PrimaryProcedure>
+                     </com2:InvoiceLine>
+                  </com2:InvoiceLines>
+                  <!--Optional:-->
+                  <com2:PrimaryDiagnosis>
+                     <!--Optional:-->
+                     <com5:Code>${DataSource#DiagnosisCode}</com5:Code>
+                     <!--Optional:-->
+                     <com5:Description>${DataSource#DiagnosisDescription}</com5:Description>
+                     <!--Optional:-->
+                     <com5:Standard>${DataSource#DiagnosisStandard}</com5:Standard>
+                  </com2:PrimaryDiagnosis>
+               </com2:Invoice>
+            </com1:Invoices>
+         </com:Claim>
+      </com:SubmitClaimRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://bupa.com/ClaimsService:submitClaimIn"/><con:wsrmConfig version="1.2"/><con:environmentSpec><con:entry environmentId="ffa02281-abee-4d92-9d74-c677c51cd899"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="da7c9196-ba3b-41d0-a66d-0a23ca4256ba"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="2e2d3644-d234-40cc-bc7a-aa84e98bab33"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="abef8391-6af3-433a-b3bb-9504a88cd8e9"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="6f08d644-a5bc-4490-920b-48a60b2d8e41"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="64e0791f-4ed5-4997-966c-88e83c52740b"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="6f2ca154-2593-4d31-9605-d7f796e04a87"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="5650c0e1-78a8-46fa-87b8-a891fcd675df"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="43d00641-0327-48c2-8143-b4a8c3cc7a15"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="d569c580-5769-4daf-af9e-5bf59356fdbc"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="838914ec-42f6-42ce-a432-f18913224d4a"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="4b1f3791-ec46-47c9-a61d-2dad2d67e563"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="ea7ba891-5369-4d68-be76-ff738b357a8d"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="d32ca7f9-7f15-406a-b283-82aea268796e"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="472fc935-ce99-435f-a108-237792822ece"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="1693b6ef-728c-4bd3-98f6-b40edae1b2a0"><con:authProfile>Inherit From Parent</con:authProfile></con:entry></con:environmentSpec></con:request></con:config></con:testStep><con:testStep type="goto" name="Conditional Goto" id="0e891af9-3842-4f76-8ff2-664460f292a4"><con:settings/><con:config xsi:type="con:GotoStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:condition><con:name>FaultExists</con:name><con:type>XPATH</con:type><con:expression>exists(//faultstring[1])</con:expression><con:targetStep>Load Response Property</con:targetStep></con:condition></con:config></con:testStep><con:testStep type="request" name="GetMemberClaims" id="4047cf29-a5b7-461e-8abd-5771f35026b4"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BasicHttpBinding_ClaimsServiceInterface</con:interface><con:operation>GetMemberClaims</con:operation><con:request name="GetMemberClaims" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="23838af4-923d-4846-9f60-8f7cc98d223b"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://systest2-partners.services-api.bupa-intl.com/BupaPartnerGateway.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:com="urn://com.bupa.bi.claims.GetMemberClaims_v1_0">
+    <soapenv:Header>
+       <tpa_organization>Test</tpa_organization>
+       <tpa_password>LZ2xO9kHZwHnBXH8t9FS2xXKZXaVwt+qhndERot9+DI=</tpa_password>
+</soapenv:Header>
+   <soapenv:Body>
+      <com:MemberClaimsRequest>
+         <com:RequestUsername>jtaylor</com:RequestUsername>
+         <com:BupaMemberId>${DataSource#BupaMemberId}</com:BupaMemberId><com:BupaClaimId>${c SubmitClaim#Response#declare namespace ns1='urn://com.bupa.bi.claims.SubmitClaim_v1_0'; //ns1:SubmitClaimResponse[1]/ns1:BupaClaimId[1]}</com:BupaClaimId>
+                   
+         
+         
+         
+         
+         <!--Optional:-->
+         
+      </com:MemberClaimsRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response" id="ee456176-c5d8-49e3-9c32-dcc5705b3e09"/><con:assertion type="XPath Match" name="Checking BupaClaimId" id="d385b88f-fe77-4563-bb46-7feedf143874"><con:configuration><path>declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:BupaClaimId[1]</path><content>${c SubmitClaim#Response#declare namespace ns1='urn://com.bupa.bi.claims.SubmitClaim_v1_0'; //ns1:SubmitClaimResponse[1]/ns1:BupaClaimId[1]}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking InvoiceNumber" id="68e10044-60fc-4d7f-95b8-ae600449592d"><con:configuration><path>declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:InvoiceNumber[1]</path><content>${DataSource#InvoiceNumber}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking PartnerReference" id="97ed8d62-e1f9-43a8-8714-2745c2360e56"><con:configuration><path>declare namespace c='urn://com.bupa.bi.common.Provider_v1_0';
+declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:Provider[1]/c:PartnerReference[1]</path><content>${DataSource#PartnerReference}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking Provider Name" id="5856d136-68de-4e8a-ad47-c7f27c6765fa"><con:configuration><path>declare namespace c='urn://com.bupa.bi.common.Provider_v1_0';
+declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:Provider[1]/c:Name[1]</path><content>${DataSource#Name}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking Provider CountryCode" id="7491c50a-c891-4bb2-bb60-883d3b48aea5"><con:configuration><path>declare namespace c='urn://com.bupa.bi.common.Provider_v1_0';
+declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:Provider[1]/c:CountryCode[1]</path><content>${DataSource#Country Code}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking PayeeType" id="1401d77c-c4de-408f-9383-dc60b9292e5d"><con:configuration><path>declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:PayeeType[1]</path><content>${DataSource#PayeeType}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking TreatmentCountryCode" id="96900b3b-d24f-4943-9585-51ee2e138877"><con:configuration><path>declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:TreatmentCountryCode[1]</path><content>${DataSource#TreatmentCountryCode}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking Invoice ClaimedAmount" id="0c22e3e7-3539-4990-a88c-640510d61708"><con:configuration><path>declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:ClaimedAmount[1]</path><content>${DataSource#ClaimedAmount}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking Invoice ClaimedCurrencyCode" id="46e8f579-ca93-4120-8d00-e6e506347d3e"><con:configuration><path>declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:ClaimedCurrencyCode[1]</path><content>${DataSource#ClaimedCurrencyCode}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking Invoice PaidAmount" id="043576a9-46e8-41f6-9d6f-e7740187765a"><con:configuration><path>declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:PaidAmount[1]</path><content>${DataSource#PaidAmount}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking Invoice PaidCurrencyCode" id="2f3093b6-22d7-4dca-9e30-4bc74296c6c0"><con:configuration><path>declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:PaidCurrencyCode[1]</path><content>${DataSource#PaidCurrencyCode}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking ItemReference" id="9e07f8b2-c706-4651-8c0f-36793d3f4353"><con:configuration><path>declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:InvoiceLines[1]/b:InvoiceLine[1]/b:ItemReference[1]</path><content>${DataSource#Item Reference}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking Benefit Code" id="7778752d-540a-42b6-9ee6-1241f2366b1e"><con:configuration><path>declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:InvoiceLines[1]/b:InvoiceLine[1]/b:BupaBenefitID[1]</path><content>${DataSource#Benefit Code}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking NumberOfIncidents" id="c6b6b65f-e8ea-4271-a3f8-4cebe7c8b0e5"><con:configuration><path>declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:InvoiceLines[1]/b:InvoiceLine[1]/b:NumberOfIncidents[1]</path><content>${DataSource#NumberOfIncidents}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking InvoiceLineClaimedAmount" id="926e780d-b636-4ed1-918b-7ba1a74f6539"><con:configuration><path>declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:InvoiceLines[1]/b:InvoiceLine[1]/b:ClaimedAmount[1]</path><content>${DataSource#InvoiceLineClaimedAmount}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking InvoiceLinePaidAmount" id="4c202ff1-c5b5-4a35-86eb-8a019007b414"><con:configuration><path>declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:InvoiceLines[1]/b:InvoiceLine[1]/b:PaidAmount[1]</path><content>${DataSource#InvoiceLinePaidAmount}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking PrimaryProcedure Code" id="e168ee62-1c51-49b2-9e96-530d5619a9a9"><con:configuration><path>declare namespace c='urn://com.bupa.bi.common.Procedure_v1_0';
+declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:InvoiceLines[1]/b:InvoiceLine[1]/b:PrimaryProcedure[1]/c:Code[1]</path><content>${DataSource#Code}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking PrimaryProcedureDescription" id="0023c763-55e1-49f0-92a3-95f015f3da16"><con:configuration><path>declare namespace c='urn://com.bupa.bi.common.Procedure_v1_0';
+declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:InvoiceLines[1]/b:InvoiceLine[1]/b:PrimaryProcedure[1]/c:Description[1]</path><content>${DataSource#Description}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking PrimaryProcedureStandard" id="adb34580-cb3d-4391-b47f-f73cd070e6de"><con:configuration><path>declare namespace c='urn://com.bupa.bi.common.Procedure_v1_0';
+declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:InvoiceLines[1]/b:InvoiceLine[1]/b:PrimaryProcedure[1]/c:Standard[1]</path><content>${DataSource#Standard}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking PrimaryDiagnosis" id="be9eecd9-2bf5-4f13-8945-774f76139c05"><con:configuration><path>declare namespace c='urn://com.bupa.bi.common.Diagnosis_v1_0';
+declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:PrimaryDiagnosis[1]/c:Code[1]</path><content>${DataSource#DiagnosisCode}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking PrimaryDiagnosis Description" id="559e2d27-dbfd-4cb9-8fe3-e388406e45be"><con:configuration><path>declare namespace c='urn://com.bupa.bi.common.Diagnosis_v1_0';
+declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:PrimaryDiagnosis[1]/c:Description[1]</path><content>${DataSource#DiagnosisDescription}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking PrimaryDiagnosisStandard" id="3d69400b-6728-454a-9080-019fd8c00bd4"><con:configuration><path>declare namespace c='urn://com.bupa.bi.common.Diagnosis_v1_0';
+declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:PrimaryDiagnosis[1]/c:Standard[1]</path><content>${DataSource#DiagnosisStandard}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking Rejection Reason" disabled="true" id="ae893c14-68df-42c2-829b-14749ac6a218"><con:configuration><path>declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:ArrayOfClaims[1]/a:Invoices[1]/b:Invoices[1]/b:InvoiceLines[1]/b:InvoiceLines[1]/b:RejectionReason[1]</path><content>${DataSource#RejectionReason}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking Rejection Reason Description" disabled="true" id="dcc974f5-b88d-4439-8722-b1235dbb96c0"><con:configuration><path>declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:ArrayOfClaims[1]/a:Invoices[1]/b:Invoices[1]/b:InvoiceLines[1]/b:InvoiceLines[1]/b:RejectionReasonDescription[1]</path><content>${DataSource#RejectionReasonDescription}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking BupaClaimId1" id="ab0158dc-310a-4b0a-afc3-801df20ca963"><con:configuration><path>declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:BupaClaimId[1]</path><content>${c SubmitClaim#Response#declare namespace ns1='urn://com.bupa.bi.claims.SubmitClaim_v1_0'; //ns1:SubmitClaimResponse[1]/ns1:BupaClaimId[1]}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking InvoiceNumber1" id="91861ed1-f085-4342-b486-217ff9054891"><con:configuration><path>declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:InvoiceNumber[1]</path><content>${DataSource#InvoiceNumber}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking PartnerReference1" id="eecf90e3-3ee6-40ee-a20e-f06f214b8050"><con:configuration><path>declare namespace c='urn://com.bupa.bi.common.Provider_v1_0';
+declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:Provider[1]/c:PartnerReference[1]</path><content>${DataSource#PartnerReference}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking Provider Name1" id="0d77b03c-2d32-4d6b-a884-5a74a568f5ce"><con:configuration><path>declare namespace c='urn://com.bupa.bi.common.Provider_v1_0';
+declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:Provider[1]/c:Name[1]</path><content>${DataSource#Name}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking Provider CountryCode1" id="c3d71f9c-a5e2-4a2f-bf87-b4acc07ecd93"><con:configuration><path>declare namespace c='urn://com.bupa.bi.common.Provider_v1_0';
+declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:Provider[1]/c:CountryCode[1]</path><content>${DataSource#Country Code}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking PayeeType1" id="0f1260a5-7d62-44ff-9c89-22ac29787bfa"><con:configuration><path>declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:PayeeType[1]</path><content>${DataSource#PayeeType}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking TreatmentCountryCode1" id="28775ee3-322e-46a5-bad9-2cf8cc30c77a"><con:configuration><path>declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:TreatmentCountryCode[1]</path><content>${DataSource#TreatmentCountryCode}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking Invoice ClaimedAmount1" id="406fbcc3-276b-4870-a668-808a64483062"><con:configuration><path>declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:InvoiceLines[1]/b:InvoiceLine[1]/b:ClaimedAmount[1]</path><content>${DataSource#ClaimedAmount}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking Invoice ClaimedCurrencyCode1" id="6f646f2c-7e19-4efc-a6e5-9f21cb8afc13"><con:configuration><path>declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:ClaimedCurrencyCode[1]</path><content>${DataSource#ClaimedCurrencyCode}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking Invoice PaidAmount1" id="c05444d9-46b0-4d89-b4f4-0f16a3450dd0"><con:configuration><path>declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:PaidAmount[1]</path><content>${DataSource#PaidAmount}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking Invoice PaidCurrencyCode1" id="2529375d-d7a6-421f-989d-b0ba3e148edf"><con:configuration><path>declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:PaidCurrencyCode[1]</path><content>${DataSource#PaidCurrencyCode}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking ItemReference1" id="d14e6286-81ab-408b-b519-e9c17c3a69c3"><con:configuration><path>declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:InvoiceLines[1]/b:InvoiceLine[1]/b:ItemReference[1]</path><content>${DataSource#Item Reference}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking Benefit Code1" id="dfa411b0-c9f3-45dc-88b2-7ec95f7865ac"><con:configuration><path>declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:InvoiceLines[1]/b:InvoiceLine[1]/b:BupaBenefitID[1]</path><content>${DataSource#Benefit Code}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking NumberOfIncidents1" id="659ff088-67cc-4256-b922-8a24a8551983"><con:configuration><path>declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:InvoiceLines[1]/b:InvoiceLine[1]/b:NumberOfIncidents[1]</path><content>${DataSource#NumberOfIncidents}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking InvoiceLineClaimedAmount1" id="4a648e88-821e-4f84-83cb-290abe702ded"><con:configuration><path>declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:InvoiceLines[1]/b:InvoiceLine[1]/b:ClaimedAmount[1]</path><content>${DataSource#InvoiceLineClaimedAmount}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking InvoiceLinePaidAmount1" id="96beb372-93e3-43d3-9506-aa1ce93ca37d"><con:configuration><path>declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:InvoiceLines[1]/b:InvoiceLine[1]/b:PaidAmount[1]</path><content>${DataSource#InvoiceLinePaidAmount}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking PrimaryProcedure Code1" id="b1d72b95-7d13-4967-a1b6-215e9ff0477a"><con:configuration><path>declare namespace c='urn://com.bupa.bi.common.Procedure_v1_0';
+declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:InvoiceLines[1]/b:InvoiceLine[1]/b:PrimaryProcedure[1]/c:Code[1]</path><content>${DataSource#Code}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking PrimaryProcedureDescription1" id="a4575aab-95ff-4587-919b-7b157fe62d1c"><con:configuration><path>declare namespace c='urn://com.bupa.bi.common.Procedure_v1_0';
+declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:InvoiceLines[1]/b:InvoiceLine[1]/b:PrimaryProcedure[1]/c:Description[1]</path><content>${DataSource#Description}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking PrimaryProcedureStandard1" id="716c6862-09ae-41fe-878b-2ce219f2e1c7"><con:configuration><path>declare namespace c='urn://com.bupa.bi.common.Procedure_v1_0';
+declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:InvoiceLines[1]/b:InvoiceLine[1]/b:PrimaryProcedure[1]/c:Standard[1]</path><content>${DataSource#Standard}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking PrimaryDiagnosis1" id="79ffd8b1-4ab8-4781-a7aa-d89ee8b619b5"><con:configuration><path>declare namespace c='urn://com.bupa.bi.common.Diagnosis_v1_0';
+declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:PrimaryDiagnosis[1]/c:Code[1]</path><content>${DataSource#DiagnosisCode}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking PrimaryDiagnosis Description1" id="3d3ac0c8-3783-42d4-aa85-105e3b8bc50b"><con:configuration><path>declare namespace c='urn://com.bupa.bi.common.Diagnosis_v1_0';
+declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:PrimaryDiagnosis[1]/c:Description[1]</path><content>${DataSource#DiagnosisDescription}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Checking PrimaryDiagnosisStandard1" id="541dec34-bb0d-4fbf-b8f1-173d2f33a6e0"><con:configuration><path>declare namespace c='urn://com.bupa.bi.common.Diagnosis_v1_0';
+declare namespace b='urn://com.bupa.bi.commonclaims.ClaimInvoice_v1_0';
+declare namespace ns1='urn://com.bupa.bi.claims.GetMemberClaims_v1_0';
+declare namespace a='urn://com.bupa.bi.commonclaims.Claim_v1_0';
+//ns1:MemberClaimsResponse[1]/ns1:Claims[1]/a:Claim[1]/a:Invoices[1]/b:Invoice[1]/b:PrimaryDiagnosis[1]/c:Standard[1]</path><content>${DataSource#DiagnosisStandard}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://bupa.com/ClaimsService:getMemberClaimsIn"/><con:wsrmConfig version="1.2"/><con:environmentSpec><con:entry environmentId="ffa02281-abee-4d92-9d74-c677c51cd899"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="da7c9196-ba3b-41d0-a66d-0a23ca4256ba"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="2e2d3644-d234-40cc-bc7a-aa84e98bab33"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="abef8391-6af3-433a-b3bb-9504a88cd8e9"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="6f08d644-a5bc-4490-920b-48a60b2d8e41"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="64e0791f-4ed5-4997-966c-88e83c52740b"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="6f2ca154-2593-4d31-9605-d7f796e04a87"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="5650c0e1-78a8-46fa-87b8-a891fcd675df"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="43d00641-0327-48c2-8143-b4a8c3cc7a15"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="d569c580-5769-4daf-af9e-5bf59356fdbc"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="838914ec-42f6-42ce-a432-f18913224d4a"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="4b1f3791-ec46-47c9-a61d-2dad2d67e563"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="ea7ba891-5369-4d68-be76-ff738b357a8d"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="d32ca7f9-7f15-406a-b283-82aea268796e"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="472fc935-ce99-435f-a108-237792822ece"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="1693b6ef-728c-4bd3-98f6-b40edae1b2a0"><con:authProfile>Inherit From Parent</con:authProfile></con:entry></con:environmentSpec></con:request></con:config></con:testStep><con:testStep type="transfer" name="Load Response Property" id="77b349a7-b820-4594-9b7b-92547b3b2ad0"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>responsetransfer</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>c SubmitClaim</con:sourceStep><con:targetType>response</con:targetType><con:targetStep>Response Property</con:targetStep><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="properties" name="Response Property" id="8a4aaeb0-d902-4ecb-803f-045235fab341"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>response</con:name><con:value xsi:nil="true"/></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="Extract variables from Response XML" id="29050b27-98ed-4fd4-8366-19bd3cade5f7"><con:settings/><con:config><script>import groovy.xml.*
+
+
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def holder = groovyUtils.getXmlHolder("Response Property#response")
+ def successfulpreauth = context.expand( '${Response Property#response#declare namespace ns1=\'urn://com.bupa.bi.preauths.SubmitPreAuth_v1_0\'; //ns1:SubmitPreAuthResponse[1]/ns1:BupaPreAuthId[1]}' )
+def successfulclaim = context.expand( '${Response Property#response#declare namespace ns1=\'urn://com.bupa.bi.claims.SubmitClaim_v1_0\'; //ns1:SubmitClaimResponse[1]/ns1:BupaClaimId[1]}' )
+def successfulclaimVersion = context.expand( '${Response Property#response#declare namespace ns1=\'urn://com.bupa.bi.claims.SubmitClaim_v1_0\'; //ns1:SubmitClaimResponse[1]/ns1:Version[1]}' )
+
+if(successfulpreauth!=null)
+{
+	testRunner.testCase.setPropertyValue("responsemsg",successfulpreauth)
+	testRunner.testCase.setPropertyValue("success","yes")
+}
+if(successfulclaim!=null)
+{
+	testRunner.testCase.setPropertyValue("responsemsg",successfulclaim)
+	testRunner.testCase.setPropertyValue("responsemsg2",successfulclaimVersion)
+	testRunner.testCase.setPropertyValue("success","yes")
+}
+if(holder.getNodeValue('//faultstring')!=null)
+{
+	testRunner.testCase.setPropertyValue("responsemsg",holder.getNodeValue('//faultstring'))
+	testRunner.testCase.setPropertyValue("success","no")
+}
+
+
+//log.info holder.getNodeValue('/*/*/*/*[1]')
+//log.info holder.getNodeValue(' //ns1:SubmitPreAuthResponse[1]/ns1:BupaPreAuthId[1]')
+</script></con:config></con:testStep><con:testStep type="datasink" name="Export to excel" id="d3016448-f8f9-4541-a7eb-d19c9e9db78e"><con:settings/><con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSink type="Excel"><con:configuration><file>//gbstafile01-1/home/SHARMAR/Xen/Documents/BIRegression_SOAPUI_Projects/Ericsson/Output Negative Testing Data.xls</file><outfile>//gbstafile01-1/home/SHARMAR/Xen/Documents/BIRegression_SOAPUI_Projects/Ericsson/Output Negative Testing Data.xls</outfile><worksheet>Successful Claims</worksheet><cell>A2</cell><evaluateFormulas>false</evaluateFormulas><append>false</append></con:configuration></con:dataSink><con:properties><con:property><con:name>BupaMember</con:name><con:value>${DataSource#BupaMemberId}</con:value></con:property><con:property><con:name>Response</con:name><con:value>${#TestCase#responsemsg}</con:value></con:property><con:property><con:name>Response Version</con:name><con:value>${#TestCase#responsemsg2}</con:value></con:property><con:property><con:name>Success</con:name><con:value>${#TestCase#success}</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="datasourceloop" name="DataSource Loop" id="24f08c8a-1430-4e3a-8442-2b4fecc23f09"><con:settings/><con:config><dataSourceStep>DataSource</dataSourceStep><targetStep>SubmitClaim</targetStep></con:config></con:testStep><con:properties><con:property><con:name>responsemsg</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">CL140212014040</con:value></con:property><con:property><con:name>success</con:name><con:value>yes</con:value></con:property><con:property><con:name>responsemsg2</con:name><con:value>0</con:value></con:property></con:properties><con:reportParameters/><con:breakPoints><con:testStepId>2faccbec-cc33-41e0-9cf5-bd8989237ff5</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>b6f537b6-987d-4136-83bd-cd68c72db121</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>3780ca31-b97f-4783-8563-162f22dae3b6</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>7044ecb0-56d1-438b-b3a5-c5d7d407d559</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>c59eae54-7465-4f12-8b81-663a39aa6fff</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>a43455b4-bf73-4b05-8ad1-051f895454af</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>3f75ffe6-ca47-4a81-b009-345d0f8707fd</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>66daeaca-5ef7-44ea-af38-13d679aa0e8c</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>407a2c3e-af3d-4ff7-aa93-3af6195426a3</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>1e16017d-d4a9-46d8-af55-dbbdb54a1b48</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:environmentSpec><con:entry environmentId="ffa02281-abee-4d92-9d74-c677c51cd899"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="da7c9196-ba3b-41d0-a66d-0a23ca4256ba"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="2e2d3644-d234-40cc-bc7a-aa84e98bab33"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="abef8391-6af3-433a-b3bb-9504a88cd8e9"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="6f08d644-a5bc-4490-920b-48a60b2d8e41"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="64e0791f-4ed5-4997-966c-88e83c52740b"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="6f2ca154-2593-4d31-9605-d7f796e04a87"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="5650c0e1-78a8-46fa-87b8-a891fcd675df"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="43d00641-0327-48c2-8143-b4a8c3cc7a15"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="d569c580-5769-4daf-af9e-5bf59356fdbc"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="838914ec-42f6-42ce-a432-f18913224d4a"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="4b1f3791-ec46-47c9-a61d-2dad2d67e563"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="ea7ba891-5369-4d68-be76-ff738b357a8d"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="d32ca7f9-7f15-406a-b283-82aea268796e"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="472fc935-ce99-435f-a108-237792822ece"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="1693b6ef-728c-4bd3-98f6-b40edae1b2a0"><con:authProfile>Inherit From Parent</con:authProfile></con:entry></con:environmentSpec></con:testCase>

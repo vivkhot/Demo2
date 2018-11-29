@@ -1,0 +1,10 @@
+BasicHttpBinding_ClaimsServiceInterface
+BasicHttpBinding_DiagnosticServiceInterface
+BasicHttpBinding_MemberServiceInterface
+BasicHttpBinding_PreAuthServiceInterface
+BasicHttpBinding_ReferenceServiceInterface
+BasicHttpBinding_ClaimsService_Internal_r3Interface
+Ericsson-Regression-Pack---PreProd
+Ericsson-Regression-Pack---UAT
+Ericsson-Pack---UAT3
+SOAP-Virt-1

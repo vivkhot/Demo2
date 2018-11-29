@@ -1,0 +1,4 @@
+BasicHttpBinding_ClaimsServiceInterface
+BasicHttpBinding_DiagnosticServiceInterface
+BasicHttpBinding_MemberServiceInterface
+BasicHttpBinding_PreAuthServiceInterface

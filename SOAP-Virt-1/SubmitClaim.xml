@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:mockOperation name="SubmitClaim" id="5993d283-d632-48ec-a17d-66dba0348ec5" interface="BasicHttpBinding_ClaimsServiceInterface" operation="SubmitClaim" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="5993d283-d632-48ec-a17d-66dba0348ec5fileName">SubmitClaim</con:setting></con:settings><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchConfig/><con:dispatchXPath/><con:routeScript/><con:response name="Response 1" id="2242407d-de87-4165-93f6-0b06a804ecc3" httpResponseStatus="200" encoding="UTF-8" dataSource=""><con:settings/><con:responseContent><![CDATA[<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+   <s:Body>
+      <SubmitClaimResponse xmlns="urn://com.bupa.bi.claims.SubmitClaim_v1_0" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+         <BupaClaimId>CL180509962003</BupaClaimId>
+         <Version>0</Version>
+      </SubmitClaimResponse>
+   </s:Body>
+</s:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://bupa.com/ClaimsService:submitClaimIn"/></con:response></con:mockOperation>

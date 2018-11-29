@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SubmitPreAuth TestCase" searchProperties="true" id="47a9274c-5580-4a3e-b999-d7ca101399b3" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="47a9274c-5580-4a3e-b999-d7ca101399b3fileName">SubmitPreAuth-TestCase</con:setting></con:settings><con:savedRecentRuns>1</con:savedRecentRuns><con:testStep type="datasource" name="DataSource" id="78dba69a-2a9d-4dd5-b388-a0a683f1fc76"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="Excel"><con:configuration><file>//gbstafile01-1/home/SHARMAR/Xen/Documents/BIRegression_SOAPUI_Projects/Ericsson/Negative Testing Data.xls</file><worksheet>PreAuth</worksheet><cell>C2</cell><ignoreEmpty>true</ignoreEmpty><evaluateFormulas>false</evaluateFormulas></con:configuration></con:dataSource><con:property>RequestUserName</con:property><con:property>BupaPreAuthID</con:property><con:property>Version</con:property><con:property>BupaMemberId</con:property><con:property>OriginatingPartnerID</con:property><con:property>PartnersPreAuthReferenceNumber</con:property><con:property>Type</con:property><con:property>ContactName</con:property><con:property>TreatmentSummary</con:property><con:property>ProcedureDate</con:property><con:property>ConsultationtDate</con:property><con:property>CountryCode</con:property><con:property>BupaProviderID</con:property><con:property>PartnerReference</con:property><con:property>Name</con:property><con:property>Country Code</con:property><con:property>DoctorDetails</con:property><con:property>LenthOfStayRequested</con:property><con:property>LenthOfStayApproved</con:property><con:property>OnsetDate</con:property><con:property>AdmissionDate</con:property><con:property>DischargeDate</con:property><con:property>EstimatedCostOfTreatment</con:property><con:property>CurrencyCode</con:property><con:property>GeneralNotes</con:property><con:property>PrimaryDiagnosisCode</con:property><con:property>PrimaryDiagnosisDescription</con:property><con:property>PrimaryDiagnosis Standard</con:property><con:property>PrimaryProcedureCode</con:property><con:property>PrimaryProcedureDescription</con:property><con:property>PrimaryProcedureStandard</con:property><con:property>SecondaryProcedureCode</con:property><con:property>SecondaryProcedure Description</con:property><con:property>SecondaryProcedure Standard</con:property><con:property>OutPatientType</con:property><con:property>Status</con:property><con:property>RejectionReason</con:property><con:property>ContactMethod</con:property><con:property>ContactType</con:property><con:property>PayeeType</con:property><con:property>Username</con:property><con:property>Password</con:property><con:startRow>0</con:startRow><con:endRow>30</con:endRow><con:completeLastOperation>true</con:completeLastOperation><con:gotoLoopOnEmpty>false</con:gotoLoopOnEmpty><con:trimValues>false</con:trimValues><con:entitizeValues>false</con:entitizeValues><con:restartOnRun>false</con:restartOnRun><con:expandProperties>false</con:expandProperties></con:config></con:testStep><con:testStep type="request" name="SubmitPreAuth" id="bd96a4be-5f26-4139-9b02-c76f9c30def0"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BasicHttpBinding_PreAuthServiceInterface</con:interface><con:operation>SubmitPreAuth</con:operation><con:request name="SubmitPreAuth" id="bf9087e4-ab8a-410c-a4a5-6c2096e0f9d7"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://systest2-partners.services-api.bupa-intl.com/BupaPartnerGateway.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:com="urn://com.bupa.bi.preauths.SubmitPreAuth_v1_0" xmlns:com1="urn://com.bupa.bi.commonpreauths.PreAuth_v1_0" xmlns:com2="urn://com.bupa.bi.common.Provider_v1_0" xmlns:com3="urn://com.bupa.bi.common.Diagnosis_v1_0" xmlns:com4="urn://com.bupa.bi.common.Procedure_v1_0">
+      <soapenv:Header>
+       <tpa_organization>Test</tpa_organization>
+       <tpa_password>LZ2xO9kHZwHnBXH8t9FS2xXKZXaVwt+qhndERot9+DI=</tpa_password>
+     </soapenv:Header>
+   <soapenv:Body>
+      <com:SubmitPreAuthRequest>
+         <com:RequestUsername>SHARMAR</com:RequestUsername>
+         <com:PreAuth>
+            <!--Optional:-->
+            <com1:BupaPreAuthId>9842547</com1:BupaPreAuthId>
+            <!--Optional:-->
+            <com1:Version>0</com1:Version>
+            <!--Optional:-->
+            <com1:BupaMemberId>BI-0000-0227-1203</com1:BupaMemberId>
+            <!--Optional:-->
+            <com1:PartnerPreAuthReference>Preauth789342</com1:PartnerPreAuthReference>
+            <!--Optional:-->
+            <com1:Type>InPatientOrDayCase</com1:Type>
+            <!--Optional:-->
+            <com1:ContactName>Test</com1:ContactName>
+            <!--Optional:-->
+            <com1:TreatmentSummary>Testing</com1:TreatmentSummary>
+            <!--Optional:-->
+            
+            <!--Optional:-->
+            <com1:ProcedureDate>2018-02-22T00:00:00.000</com1:ProcedureDate><com1:ConsultationtDate>2018-02-22T00:00:00.000</com1:ConsultationtDate><com1:CountryCode>GBR</com1:CountryCode>
+            <!--Optional:-->
+            <com1:Provider>
+               <!--Optional:-->
+               <com2:BupaProviderId>438369</com2:BupaProviderId>
+               <!--Optional:-->
+               <com2:PartnerReference xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+               <!--Optional:-->
+               <com2:Name>Test</com2:Name>
+               <!--Optional:-->
+               <com2:CountryCode>GBR</com2:CountryCode>
+            </com1:Provider>
+            <!--Optional:-->
+            <com1:DoctorDetails>Testing</com1:DoctorDetails>
+            <!--Optional:-->
+            <com1:LengthOfStayRequested>1</com1:LengthOfStayRequested>
+            <!--Optional:-->
+            <com1:LengthOfStayApproved>1</com1:LengthOfStayApproved>
+            <!--Optional:-->
+            <com1:OnsetDate>2018-02-22T00:00:00.000</com1:OnsetDate>
+            <!--Optional:-->
+            <com1:AdmissionDate>2018-02-22T00:00:00.000</com1:AdmissionDate>
+            <!--Optional:-->
+            <com1:DischargeDate>2018-02-22T00:00:00.000</com1:DischargeDate>
+            <!--Optional:-->
+            <com1:EstimatedCostOfTreatment>100</com1:EstimatedCostOfTreatment>
+            <!--Optional:-->
+            <com1:CurrencyCode>GBP</com1:CurrencyCode>
+            <!--Optional:-->
+            <com1:GeneralNotes>Test</com1:GeneralNotes>
+            <!--Optional:-->
+            <com1:PrimaryDiagnosis>
+               <!--Optional:-->
+               <com3:Code>001.00</com3:Code>
+               <!--Optional:-->
+               <com3:Description>test</com3:Description>
+               <!--Optional:-->
+               <com3:Standard>ICD9</com3:Standard>
+            </com1:PrimaryDiagnosis>
+            <!--Optional:-->
+            <com1:PrimaryProcedure>
+               <!--Optional:-->
+               <com4:Code>1000</com4:Code>
+               <!--Optional:-->
+               <com4:Description xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+               <!--Optional:-->
+               <com4:Standard>Bupa</com4:Standard>
+            </com1:PrimaryProcedure>
+            <!--Optional:-->
+            <com1:SecondaryProcedure>
+               <!--Optional:-->
+               <com4:Code xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+               <!--Optional:-->
+               <com4:Description xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+               <!--Optional:-->
+               <com4:Standard>Bupa</com4:Standard>
+            </com1:SecondaryProcedure>
+            <!--Optional:-->
+            <com1:OutpatientType>Chemotherapy</com1:OutpatientType>
+            <!--Optional:-->
+            <com1:Status>Approved</com1:Status>
+            <!--Optional:-->
+            <com1:RejectionReason xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+            <!--Optional:-->
+            <com1:ContactMethod>Email</com1:ContactMethod>
+            <!--Optional:-->
+            <com1:ContactType>Member</com1:ContactType>
+            <!--Optional:-->
+            <com1:PayeeType>Member</com1:PayeeType>
+         </com:PreAuth>
+      </com:SubmitPreAuthRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://bupa.com/PreAuthService:submitPreAuthIn" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/><con:environmentSpec><con:entry environmentId="ffa02281-abee-4d92-9d74-c677c51cd899"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="da7c9196-ba3b-41d0-a66d-0a23ca4256ba"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="2e2d3644-d234-40cc-bc7a-aa84e98bab33"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="abef8391-6af3-433a-b3bb-9504a88cd8e9"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="6f08d644-a5bc-4490-920b-48a60b2d8e41"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="64e0791f-4ed5-4997-966c-88e83c52740b"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="6f2ca154-2593-4d31-9605-d7f796e04a87"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="5650c0e1-78a8-46fa-87b8-a891fcd675df"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="43d00641-0327-48c2-8143-b4a8c3cc7a15"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="d569c580-5769-4daf-af9e-5bf59356fdbc"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="838914ec-42f6-42ce-a432-f18913224d4a"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="4b1f3791-ec46-47c9-a61d-2dad2d67e563"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="ea7ba891-5369-4d68-be76-ff738b357a8d"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="d32ca7f9-7f15-406a-b283-82aea268796e"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="472fc935-ce99-435f-a108-237792822ece"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="1693b6ef-728c-4bd3-98f6-b40edae1b2a0"><con:authProfile>Inherit From Parent</con:authProfile></con:entry></con:environmentSpec></con:request></con:config></con:testStep><con:testStep type="transfer" name="Load Response Property" id="d2b47bea-dba6-4033-b351-25fcc6a3695b"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>responsetransfer</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>SubmitPreAuth</con:sourceStep><con:targetType>response</con:targetType><con:targetStep>Response Property</con:targetStep><con:targetPath/><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="properties" name="Response Property" id="86c072f9-3044-4fb7-8881-5036007dff39"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>response</con:name><con:value><![CDATA[<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+   <s:Header>
+      <correlation_id>464cffcc-d012-4c09-ad4d-5159aa65cee0</correlation_id>
+   </s:Header>
+   <s:Body>
+      <s:Fault>
+         <faultcode>s:Client</faultcode>
+         <faultstring xml:lang="en-US">"An internal fault occured. Error ID = 01c2a927-996b-4b1d-a8e6-54ee4510bb8a"</faultstring>
+         <detail>
+            <InternalFault xmlns="urn://com.bupa.bi.common.Faults_v1_0" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+               <Description i:nil="true"/>
+               <RetryIndicator i:nil="true"/>
+            </InternalFault>
+         </detail>
+      </s:Fault>
+   </s:Body>
+</s:Envelope>]]></con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="Extract variables from Response XML" id="e6009b68-6be1-4147-a1c3-84344b964db3"><con:settings/><con:config><script>import groovy.xml.*
+
+
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def holder = groovyUtils.getXmlHolder("Response Property#response")
+def successfulpreauth = context.expand( '${Response Property#response#declare namespace ns1=\'urn://com.bupa.bi.preauths.SubmitPreAuth_v1_0\'; //ns1:SubmitPreAuthResponse[1]/ns1:BupaPreAuthId[1]}' )
+def successfulpreauthVesrion = context.expand( '${Response Property#response#declare namespace ns1=\'urn://com.bupa.bi.preauths.SubmitPreAuth_v1_0\'; //ns1:SubmitPreAuthResponse[1]/ns1:Version[1]}' )
+if(successfulpreauth!=null)
+{
+	testRunner.testCase.setPropertyValue("responsemsg",successfulpreauth)
+	testRunner.testCase.setPropertyValue("responsemsg2",successfulpreauthVesrion)
+	testRunner.testCase.setPropertyValue("success","yes")
+}
+if(holder.getNodeValue('//faultstring')!=null)
+{
+	testRunner.testCase.setPropertyValue("responsemsg",holder.getNodeValue('//faultstring'))
+	testRunner.testCase.setPropertyValue("success","no")
+}
+
+//log.info holder.getNodeValue('/*/*/*/*[1]')
+//log.info holder.getNodeValue(' //ns1:SubmitPreAuthResponse[1]/ns1:BupaPreAuthId[1]')
+
+
+</script></con:config></con:testStep><con:testStep type="datasink" name="Export to excel" id="0f3a9a75-5b4e-45f9-96c1-07a59c2f798d"><con:settings/><con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSink type="Excel"><con:configuration><file>//gbstafile01-1/home/SHARMAR/Xen/Documents/BIRegression_SOAPUI_Projects/Ericsson/test.xls</file><outfile>//gbstafile01-1/home/SHARMAR/Xen/Documents/BIRegression_SOAPUI_Projects/Ericsson/test.xls</outfile><worksheet>PreAuth</worksheet><cell>A2</cell><evaluateFormulas>false</evaluateFormulas><append>false</append></con:configuration></con:dataSink><con:properties><con:property><con:name>BupaMember</con:name><con:value>${DataSource#BupaMemberId}</con:value></con:property><con:property><con:name>Response</con:name><con:value>${#TestCase#responsemsg}</con:value></con:property><con:property><con:name>Response Version</con:name><con:value>${#TestCase#responsemsg2}</con:value></con:property><con:property><con:name>Success</con:name><con:value>${#TestCase#success}</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="datasourceloop" name="DataSource Loop" id="2bf4c708-5a10-4929-ab44-9465449c4a12"><con:settings/><con:config><dataSourceStep>DataSource</dataSourceStep><targetStep>SubmitPreAuth</targetStep></con:config></con:testStep><con:properties><con:property><con:name>responsemsg</con:name><con:value>"An internal fault occured. Error ID = 01c2a927-996b-4b1d-a8e6-54ee4510bb8a"</con:value></con:property><con:property><con:name>responsemsg2</con:name><con:value/></con:property><con:property><con:name>success</con:name><con:value>no</con:value></con:property></con:properties><con:reportParameters/><con:breakPoints><con:testStepId>ea866006-6ddb-4232-9c1c-01c117b9f92b</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>f0447328-d411-4d48-a077-4b7917d56f0e</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>9fb4b9e7-470c-41f6-847a-e90759f0f26b</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:environmentSpec><con:entry environmentId="ffa02281-abee-4d92-9d74-c677c51cd899"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="da7c9196-ba3b-41d0-a66d-0a23ca4256ba"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="2e2d3644-d234-40cc-bc7a-aa84e98bab33"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="abef8391-6af3-433a-b3bb-9504a88cd8e9"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="6f08d644-a5bc-4490-920b-48a60b2d8e41"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="64e0791f-4ed5-4997-966c-88e83c52740b"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="6f2ca154-2593-4d31-9605-d7f796e04a87"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="5650c0e1-78a8-46fa-87b8-a891fcd675df"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="43d00641-0327-48c2-8143-b4a8c3cc7a15"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="d569c580-5769-4daf-af9e-5bf59356fdbc"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="838914ec-42f6-42ce-a432-f18913224d4a"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="4b1f3791-ec46-47c9-a61d-2dad2d67e563"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="ea7ba891-5369-4d68-be76-ff738b357a8d"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="d32ca7f9-7f15-406a-b283-82aea268796e"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="472fc935-ce99-435f-a108-237792822ece"><con:authProfile>Inherit From Parent</con:authProfile></con:entry><con:entry environmentId="1693b6ef-728c-4bd3-98f6-b40edae1b2a0"><con:authProfile>Inherit From Parent</con:authProfile></con:entry></con:environmentSpec></con:testCase>
